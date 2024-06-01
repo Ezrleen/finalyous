@@ -20,6 +20,22 @@
     .bg-cover {
       background-size: cover;
     }
+    #announcement {
+  font-size: 2em; /* Increase font size */
+  color: #ff6347; /* Change text color to a more vibrant shade, e.g., tomato */
+  text-align: center; /* Center align the text */
+  font-weight: bold; /* Make the text bold */
+  font-family: 'Arial', sans-serif; /* Change the font family to Arial */
+  background: linear-gradient(to right, #ffafbd, #ffc3a0); /* Gradient background */
+  padding: 20px; /* Add padding */
+  border-radius: 10px; /* Round the corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow for a 3D effect */
+  transition: transform 0.3s; /* Smooth transition for transform effect */
+}
+
+#announcement:hover {
+  transform: scale(1.05); /* Slightly increase the size on hover */
+}
   </style>
   
 </head>
@@ -62,7 +78,7 @@
         </div>
 
         <!-- Content -->
-        <p class="text-base mb-10 text-gray-200 md:text-right">This video is coming soon... Stay tuned!
+        <p id="announcement" class="text-base mb-10 text-gray-200 md:text-right">This video is coming soon... Stay tuned!</p>
         <!-- Add Video Button -->
         <div class="text-center">
           <button id="addVideoBtn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-4">Add Video</button>
