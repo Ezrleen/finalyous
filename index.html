@@ -62,8 +62,7 @@
         </div>
 
         <!-- Content -->
-        <p class="text-base mb-10 text-gray-200 md:text-right">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta reprehenderit delectus quasi eligendi maiores consectetur repellat necessitatibus libero deleniti quaerat debitis, odit earum modi. Magni porro iste dolores. </p>
-
+        <p class="text-base mb-10 text-gray-200 md:text-right">This video is coming soon... Stay tuned!
         <!-- Add Video Button -->
         <div class="text-center">
           <button id="addVideoBtn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-4">Add Video</button>
@@ -109,12 +108,18 @@
   </header>  
 
   <script>
-    // Change the value of countDownEndDate to the day you want to end the count down
-    var countDownEndDate = "August 5, 2024 09:00:00";
     
-    var endDate = new Date(countDownEndDate).getTime();
-    
-    var x = setInterval(function() {
+    // Get the current time
+var now = new Date().getTime();
+
+// Calculate the countdown end date 7 days from now
+var countDownEndDate = new Date(now + 7 * 24 * 60 * 60 * 1000);
+
+// Get the time in milliseconds for the countdown end date
+var endDate = countDownEndDate.getTime();
+
+// Update the countdown every second
+var x = setInterval(function() {
   var timeNow = new Date().getTime();
   var timeLeft = endDate - timeNow;
   var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
@@ -143,13 +148,18 @@
     document.getElementById("cdH").innerHTML = hours;
     document.getElementById("cdM").innerHTML = minutes;
     document.getElementById("cdS").innerHTML = seconds;
+  } else {
+    // If the countdown is finished, clear the interval
+    clearInterval(x);
+    // Optionally, you can display some message or take some action here
+    document.getElementById("countdown").innerHTML = "Countdown finished!";
   }
 }, 1000);
 
         // Function to add video
   function addVideo() {
     var video = document.createElement('video');
-    video.src = 'path_to_your_video.mp4'; // Replace 'path_to_your_video.mp4' with the actual path to your video file
+    video.src = 'path_to_your_video.mp4'; 
     video.controls = true;
     video.autoplay = true;
     video.loop = true;
